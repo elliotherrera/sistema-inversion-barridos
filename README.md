@@ -14,6 +14,7 @@
 <br/>
 
 <!-- ===== STACK BADGES ===== -->
+
 [![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://learn.microsoft.com/power-bi/)
 [![Power Query](https://img.shields.io/badge/Power_Query-1A9CC8?style=for-the-badge&logo=data&logoColor=white)](https://learn.microsoft.com/power-query/)
 [![DAX](https://img.shields.io/badge/DAX-6A5ACD?style=for-the-badge&logo=databricks&logoColor=white)](https://learn.microsoft.com/dax/)
@@ -26,25 +27,25 @@
 ## Sobre este proyecto
 
 > Un sistema de inversión basado en **barridos de liquidez** (liquidity sweeps):
-> momentos en que el precio rompe niveles clave **(POIs)**, activando
-> órdenes stop antes de revertir.
+> momentos en que el precio rompe niveles clave, activando
+> órdenes limit antes de revertir.
 
 **La pregunta de análisis:**
 
-> *Después de un barrido de liquidez, ¿la reversión genera un valor
-> esperado consistente, medido en R-múltiplos?*
+> _Después de un barrido de liquidez, ¿la reversión genera un valor
+> esperado consistente, medido en R (Renta / Riesgo)?_
 
 <div align="center">
 
-| Periodo | Operaciones | Pares | Sesiones | Tipos de barrido |
-|:---:|:---:|:---:|:---:|:---:|
-| Ene 2023 → Ene 2026 | **1.029** barridos | **7** majors | **4** sesiones | **4** tipos |
+|       Periodo       |    Operaciones     |    Pares     |    Sesiones    | Tipos de barrido |
+| :-----------------: | :----------------: | :----------: | :------------: | :--------------: |
+| Ene 2023 → Ene 2026 | **1.029** barridos | **7** majors | **4** sesiones |   **4** tipos    |
 
 <br/>
 
-*EURUSD · AUDUSD · GBPUSD · USDJPY · NZDUSD · USDCAD · USDCHF*
+_EURUSD · AUDUSD · GBPUSD · USDJPY · NZDUSD · USDCAD · USDCHF_
 
-*R-múltiplos a distintos objetivos (2R → 100R), con y sin costos*
+_Gestión de toma de ganancias con R fijo (0.5R → 25R) y R estratégico. Incluye costos por operación (fee + spread + swap)_
 
 </div>
 
@@ -57,13 +58,13 @@
 Cuanto más se deja correr una operación y se toman ganancias con un ratio
 mayor a **3R**, mayor beneficio acumulado en el tiempo.
 
-| Objetivo | Resultado |
-|:---|:---|
-| **< 3R** | Tasa de acierto alta, pero **ganancia real negativa** |
+| Objetivo | Resultado                                              |
+| :------- | :----------------------------------------------------- |
+| **< 3R** | Tasa de acierto alta, pero **ganancia real negativa**  |
 | **≥ 3R** | Menos aciertos, pero **beneficio acumulado creciente** |
 
-> *Mucha precisión no paga cuando la ganancia por acierto es pequeña
-> frente al riesgo.*
+> _Mucha precisión no paga cuando la ganancia por acierto es pequeña
+> frente al riesgo._
 
 ### El edge se concentra en pocos trades
 
@@ -77,7 +78,7 @@ rendimiento acumulado.
 > La recopilación de datos pasó por **muchos filtros sucesivos** hasta
 > que el sistema quedó "recolectado": los datos fueron **cocinados**
 > a medida que el sistema se ajustaba, y lo que quedó es el clásico
-> *sistema superviviente*. **Esta información está sesgada.**
+> _sistema superviviente_. **Esta información está sesgada.**
 
 ### Validación real
 
@@ -98,7 +99,7 @@ datos de **2023**, el edge **no se nota realmente**.
 ## Dashboard
 
 Visualizaciones construidas en **Power BI** sobre las 1.029 operaciones registradas.
-Dos formas de salir de la operación: **objetivo fijo** y **salida estratégica**.
+Dos formas de salir de la operación: **objetivo fijo** y **objetivo estratégico**.
 
 ### Salida por objetivo fijo
 
@@ -129,13 +130,13 @@ objetivo fijo (0.5R a 25R).
 
 </div>
 
-- **A menor R, mayor acierto:** con objetivos de 0.5R–2R más de la
+- **A menor R, mayor acierto:** con objetivo de 0.5R - 1R más de la
   mitad de las operaciones llega a TP.
 - **Pero correlacionado con el gráfico anterior:** tanto acierto en
   pocos R **no se traduce en ganancia acumulada** — la tasa de acierto
   engaña; lo que paga es el tamaño del objetivo.
 
-### Salida estratégica: objetivo vs cierre
+### Objetivo estratégico: objetivo vs cierre
 
 **R acumulado en el tiempo, por estrategia de salida**
 
@@ -146,8 +147,8 @@ objetivo fijo (0.5R a 25R).
 </div>
 
 Comparación de tres formas de cerrar la operación: dejar correr hasta
-el cierre del movimiento (**Solo cierre**), salir a un objetivo fijo
-(**Solo objetivo**) o combinar ambos (**Objetivo + cierre**).
+el cierre por intervencion de noticias de alto impacto o por cierre de sesion semanal (**Solo cierre**), salir solo cuando el precio alcanza el objetivo (riesgoso por exposicion a gaps)
+(**Solo objetivo**) o combinar ambos y cerrar cuando alguna se cumpla antes (**Objetivo + cierre**). Cabe destacar que en todos los casos se respeta un limite de perdida (stop loss).
 
 - **"Solo cierre" es la estrategia ganadora:** dejar correr la
   operación captura las colas de la distribución (esas que generan
@@ -165,7 +166,7 @@ el cierre del movimiento (**Solo cierre**), salir a un objetivo fijo
 
 - **"Solo objetivo" tiene el acierto más alto** — y aun así es
   la estrategia más modesta en R acumulado.
-- **"Solo cierre" acierta menos** y aun así gana **casi el doble** que
+- **"Solo cierre" acierta menos** y aun así gana **un poco más** que
   las demás: vuelve a ganar las colas de la distribución, no la
   precisión.
 
@@ -188,7 +189,7 @@ Aquí la imagen es descarnada: al filtrar solo las operaciones con
 - El rendimiento no lo define la estrategia de salida sola: lo
   define **dónde hay potencial grande** para recorrerlo.
 - Confirma los hallazgos: el rendimiento se concentra en pocas
-  operaciones de colas, y saber *dónde* ocurre vale más que la
+  operaciones de colas, y saber _dónde_ ocurre vale más que la
   pericia de gestión.
 
 <br/>
