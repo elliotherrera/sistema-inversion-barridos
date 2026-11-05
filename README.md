@@ -19,6 +19,7 @@
 [![Power Query](https://img.shields.io/badge/Power_Query-1A9CC8?style=for-the-badge&logo=data&logoColor=white)](https://learn.microsoft.com/power-query/)
 [![DAX](https://img.shields.io/badge/DAX-6A5ACD?style=for-the-badge&logo=databricks&logoColor=white)](https://learn.microsoft.com/dax/)
 [![Excel](https://img.shields.io/badge/Excel_Avanzado-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white)](https://www.microsoft.com/excel/)
+[![VBA](https://img.shields.io/badge/Visual_Basic-5C2D91?style=for-the-badge)](https://learn.microsoft.com/office/vba/api/overview/)
 
 </div>
 
@@ -130,7 +131,7 @@ objetivo fijo (0.5R a 25R).
 
 </div>
 
-- **A menor R, mayor acierto:** con objetivo de 0.5R - 1R más de la
+- **A menor R, mayor acierto:** con objetivo de 0.5R–1R más de la
   mitad de las operaciones llega a TP.
 - **Pero correlacionado con el gráfico anterior:** tanto acierto en
   pocos R **no se traduce en ganancia acumulada** — la tasa de acierto
@@ -147,8 +148,12 @@ objetivo fijo (0.5R a 25R).
 </div>
 
 Comparación de tres formas de cerrar la operación: dejar correr hasta
-el cierre por intervencion de noticias de alto impacto o por cierre de sesion semanal (**Solo cierre**), salir solo cuando el precio alcanza el objetivo (riesgoso por exposicion a gaps)
-(**Solo objetivo**) o combinar ambos y cerrar cuando alguna se cumpla antes (**Objetivo + cierre**). Cabe destacar que en todos los casos se respeta un limite de perdida (stop loss).
+el cierre por intervención de noticias de alto impacto o por cierre de
+sesión semanal (**Solo cierre**), salir solo cuando el precio alcanza
+el objetivo (riesgoso por exposición a gaps) (**Solo objetivo**) o
+combinar ambos y cerrar cuando alguna se cumpla antes (**Objetivo +
+cierre**). Cabe destacar que en todos los casos se respeta un límite
+de pérdida (stop loss).
 
 - **"Solo cierre" es la estrategia ganadora:** dejar correr la
   operación captura las colas de la distribución (esas que generan
