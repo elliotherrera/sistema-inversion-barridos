@@ -52,6 +52,16 @@ _Gestión de toma de ganancias con R fijo (0.5R → 25R) y R estratégico. Inclu
 
 <br/>
 
+## Contexto de las entradas
+
+La entrada y el stop son **mecánicos** y siguen reglas explícitas: barrido de liquidez, confirmación por *inside bar* —en sus variantes **interno**, **extendido**, **grada** e **interno 3-9**— y una protección de entrada y stop loss por zona.
+
+📄 **Metodología completa:** [Reglas de entrada](reglas_de_entrada.md)
+
+> El documento explica cómo se generó cada operación, qué mide cada variable del dataset y por qué se aplicaron esos filtros. Es la base para auditar los resultados y entender su sesgo.
+
+<br/>
+
 ## Hallazgos
 
 ### La gestión importa más que la entrada
@@ -108,7 +118,7 @@ Dos formas de salir de la operación: **objetivo fijo** y **objetivo estratégic
 
 <div align="center">
 
-![R acumulado en el tiempo por objetivo](imagenes/r_fijo.png)
+![R acumulado en el tiempo por objetivo](imagenes/imagenes_del_analisis/r_fijo.png)
 
 </div>
 
@@ -127,7 +137,7 @@ objetivo fijo (0.5R a 25R).
 
 <div align="center">
 
-![Composición de resultados por objetivo](imagenes/r_fijo_tasa.png)
+![Composición de resultados por objetivo](imagenes/imagenes_del_analisis/r_fijo_tasa.png)
 
 </div>
 
@@ -143,7 +153,7 @@ objetivo fijo (0.5R a 25R).
 
 <div align="center">
 
-![R acumulado por estrategia de salida](imagenes/r_estrategico.png)
+![R acumulado por estrategia de salida](imagenes/imagenes_del_analisis/r_estrategico.png)
 
 </div>
 
@@ -165,7 +175,7 @@ de pérdida (stop loss).
 
 <div align="center">
 
-![Tasa de acierto por estrategia de salida](imagenes/r_estrategico_tasa.png)
+![Tasa de acierto por estrategia de salida](imagenes/imagenes_del_analisis/r_estrategico_tasa.png)
 
 </div>
 
@@ -181,7 +191,7 @@ de pérdida (stop loss).
 
 <div align="center">
 
-![Estrategias filtradas a potencial alto](imagenes/r_estrategico_solo_potencial_alto.png)
+![Estrategias filtradas a potencial alto](imagenes/imagenes_del_analisis/r_estrategico_solo_potencial_alto.png)
 
 </div>
 
